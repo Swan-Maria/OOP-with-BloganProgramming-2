@@ -10,8 +10,8 @@ int main()
 
 	std::cout << "\n\n---------------------------------------------------------------------------\n\n";
 
-	Matrix matrix_1(3,3);
-	matrix_1 = matrix_0; 
+	Matrix matrix_1(3, 3);
+	matrix_1 = matrix_0;
 
 	matrix_1.Print();
 

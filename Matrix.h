@@ -1,40 +1,62 @@
 #pragma once
 
-class Matrix
+class Matrix  //struct Matrix
 {
 private:
 	void Destroy();
 
 	//setter
-	void FillByValue(int value);
-
-
+	static int countObjects;
+	
 	int** m_pdata;
 	size_t m_rows;
 	size_t m_cols;
 public:
-	Matrix(size_t rows, size_t cols);
-	Matrix(size_t rows, size_t, int value);
+	Matrix(size_t, size_t);
+	Matrix(size_t, size_t, int);
+	Matrix(const Matrix&);
 
 	~Matrix();
 
 	//getter
-	int GetElement(size_t row, size_t col) const;  //Aij
+	int GetElement(size_t, size_t) const;  //Aij
 	size_t GetRowsCount() const;
 	size_t GetColsCount() const;
 
 	//setter
 	void FillByRandom();
+	void FillByValue(int);
 
-	Matrix Add(const Matrix& right, bool& bres);  //Add(Matrix* right)  right == nullptr
-	Matrix Subtract(Matrix& right, bool& bres);
+	//static
 
-	//multiply by number
-	bool Multiply(int multplr);  //matrix is left multiplier only
-
-	Matrix Transpose(bool& bres);
-
-	Matrix& operator=(const Matrix& right);
+	Matrix Transponse(bool& bres);
 
 	void Print();
+
+	//operators oveloading
+
+	//arithmetic operators:
+	Matrix operator+(const Matrix&) const; //A += B <=> A = A + B
+	Matrix operator-(const Matrix&) const;
+
+
+	//multiply by number
+	Matrix operator*(const int) const;  //A 
+	//multiply by matrix
+	Matrix operator*(const Matrix&) const; //
+
+	bool operator==(const Matrix&) const;
+	bool operator!=(const Matrix&) const;
+
+	//A > B if A11 > B11
+	bool operator<(const Matrix&) const;
+	bool operator>(const Matrix&) const;
+	bool operator<=(const Matrix&) const;
+	bool operator>=(const Matrix&) const;
+
+	//assignment operator overloading
+	Matrix& operator=(const Matrix& right);
+
+	//friend functions
+
 };
