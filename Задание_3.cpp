@@ -19,7 +19,6 @@ public:
 	const T2& second() const { return m_b; }
 };
 
-//We haven't learned about inheritance yet... so:
 template <typename T2>
 class StringValuePair : public Pair<std::string, T2>
 {
