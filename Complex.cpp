@@ -41,7 +41,7 @@ public:
 		std::cout << string << m_Re << " + " << m_Im << "i\n";
 	}
 	//----------------------------------------------------------
-	Complex operator+(Complex y)
+	Complex operator+(const Complex& y) const
 	{
 		Complex z;
 		z.m_Re = m_Re + y.m_Re;
@@ -49,7 +49,7 @@ public:
 		return z;
 	}
 
-	Complex operator+(double x) 
+	Complex operator+(const double& x) const
 	{
 		Complex z;
 		z.m_Re = m_Re +x;
@@ -57,7 +57,7 @@ public:
 		return z;
 	}
 
-	Complex operator*(Complex y)
+	Complex operator*(const Complex& y) const
 	{
 		Complex z;
 		z.m_Re = m_Re *y.m_Re - m_Im *y.m_Im;
@@ -65,7 +65,7 @@ public:
 		return z;
 	}
 
-	Complex operator*(double x)
+	Complex operator*(const double& x) const
 	{
 		Complex z;
 		z.m_Re = m_Re * x;
