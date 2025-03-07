@@ -37,7 +37,7 @@ public:
 
     //-----------------------------------------------------------------------------------------
 
-    Fraction(const Fraction& other) 
+    Fraction(const Fraction& other)
 		: m_numerator(other.m_numerator), m_denominator(other.m_denominator) 
 	{}
 
@@ -71,7 +71,7 @@ public:
     //-----------------------------------------------------------------------------------------
 
 
-	void Print(std::string string="") const {
+	void Print(const std::string string="") const {
 		std::cout << string << m_numerator << "/" << m_denominator << std::endl;
 	}
 
